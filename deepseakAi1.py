@@ -75,9 +75,12 @@ def _try_extract_text(resp):
 
 
 
+
+
 def ask_genai(messages):
     simple_input = _messages_to_simple_input(messages)
     attempt_errors = []
+
 
     # 1) responses.create (if supported)
     try:
@@ -92,6 +95,8 @@ def ask_genai(messages):
                 return text
     except Exception as e:
         attempt_errors.append(("responses.create", repr(e)))
+
+
 
     # 2) models.generate_content WITH CONFIG (your requested part)
     # 2) models.generate_content WITH OPTIONAL CONFIG (try-with-config, fallback-without-config)
@@ -123,6 +128,8 @@ def ask_genai(messages):
                     ),
                 ]
             )
+
+
 
             # First attempt: try with config (preferred)
             try:
