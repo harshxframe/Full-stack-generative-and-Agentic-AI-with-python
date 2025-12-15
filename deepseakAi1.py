@@ -103,6 +103,10 @@ def ask_genai(messages):
     try:
         if hasattr(client, "models") and hasattr(client.models, "generate_content"):
 
+
+
+
+
             # prepared config you want to apply
             generation_config = types.GenerateContentConfig(
                 safety_settings=[
@@ -128,6 +132,10 @@ def ask_genai(messages):
                     ),
                 ]
             )
+
+
+
+
 
 
 
